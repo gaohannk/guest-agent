@@ -101,14 +101,14 @@ func agentInit(ctx context.Context) {
 			startSnapshotListener(snapshotServiceIP, snapshotServicePort)
 		}
 
-		// These scripts are run regardless of metadata/network access and config options.
-		for _, script := range []string{"optimize_local_ssd", "set_multiqueue"} {
-			if config.Section("InstanceSetup").Key(script).MustBool(true) {
-				if err := runCmd(exec.Command("google_" + script)); err != nil {
-					logger.Warningf("Failed to run %q script: %v", "google_"+script, err)
-				}
-			}
-		}
+		//// These scripts are run regardless of metadata/network access and config options.
+		//for _, script := range []string{"optimize_local_ssd", "set_multiqueue"} {
+		//	if config.Section("InstanceSetup").Key(script).MustBool(true) {
+		//		if err := runCmd(exec.Command("google_" + script)); err != nil {
+		//			logger.Warningf("Failed to run %q script: %v", "google_"+script, err)
+		//		}
+		//	}
+		//}
 
 		// Below actions happen on every agent start. They only need to
 		// run once per boot, but it's harmless to run them on every
