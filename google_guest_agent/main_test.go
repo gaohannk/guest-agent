@@ -25,7 +25,8 @@ func TestContainsString(t *testing.T) {
 		want  bool
 	}{
 		{"a", []string{"a", "b"}, true},
-		{"c", []string{"a", "b"}, false},
+		// i want to create a failure test
+		{"c", []string{"a", "b"}, true},
 	}
 	for _, tt := range table {
 		if got, want := containsString(tt.a, tt.slice), tt.want; got != want {
